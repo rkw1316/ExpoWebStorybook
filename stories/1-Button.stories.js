@@ -1,17 +1,27 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button } from '@storybook/react/demo';
+import { View, StyleSheet, Text, Button } from 'react-native';
 
 export default {
-  title: 'Button',
+    title: 'Button'
 };
 
-export const text = () => <Button onClick={action('clicked')}>Hello Button</Button>;
-
-export const emoji = () => (
-  <Button onClick={action('clicked')}>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
+export const button = () => (
+    <View style={styles.container}>
+        <Button
+            title="button"
+            onPress={() => {
+                console.log('press');
+            }}
+        ></Button>
+    </View>
 );
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});
