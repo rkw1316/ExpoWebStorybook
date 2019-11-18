@@ -16,18 +16,28 @@ const DATA = [
     }
 ];
 
-const Item = ({ title }) => {
+const Item = ({
+    title = '???',
+    styleItem = styles.item,
+    styleTitle = styles.title
+}) => {
     return (
-        <View style={styles.item}>
-            <Text style={styles.title}>{title}</Text>
+        <View style={styleItem}>
+            <Text style={styleTitle}>{title}</Text>
         </View>
     );
 };
-export const MyFlatList = ({ data = DATA }) => {
+export const MyFlatList = ({ data = DATA, styleItem, styleTitle }) => {
     return (
         <FlatList
             data={data}
-            renderItem={({ item }) => <Item title={item.title} />}
+            renderItem={({ item }) => (
+                <Item
+                    title={item.title}
+                    styleItem={styleItem}
+                    styleTitle={styleTitle}
+                />
+            )}
             keyExtractor={item => item.id}
         />
     );

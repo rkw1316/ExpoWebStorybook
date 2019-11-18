@@ -1,31 +1,13 @@
 import React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, View } from 'react-native';
 
 export const MyButton = props => (
-    <View style={styles.buttonContainer}>
+    <View style={props.viewStyle}>
         <Button
-            style={props.style}
+            style={props.buttonStyle}
             title={props.title}
             onPress={props.onPress}
+            disabled={props.disabled}
         />
     </View>
 );
-
-const styles = StyleSheet.create({
-    container: {
-        height: 200,
-        width: 200,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff111'
-    },
-    buttonContainer: {
-        flex: 1,
-        // height: 100,
-        // width: 100,
-        frexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#000fff'
-    }
-});
